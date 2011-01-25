@@ -1,0 +1,27 @@
+title: Patch with git recipe
+slug: git-patch
+
+an example with a patch file named fix_empty_poster.patch
+
+check
+-----
+
+    git apply --check fix_empty_poster.patch
+    git apply --stat fix_empty_poster.patch
+    
+
+apply and signoff
+-----------------
+
+    git am --signoff fix_empty_poster.patch
+
+roll your own
+-------------
+
+    git format-patch 
+
+resources
+---------
+* [git-apply](http://www.kernel.org/pub/software/scm/git/docs/git-apply.html)
+* [git-am](http://www.kernel.org/pub/software/scm/git/docs/git-am.html)
+* [how-to-create-and-apply-a-patch-with-git](http://ariejan.net/2009/10/26/how-to-create-and-apply-a-patch-with-git/)

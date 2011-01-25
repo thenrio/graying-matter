@@ -1,0 +1,12 @@
+title: mongodb install ubuntu 10.04
+
+install mongodb
+---------------
+
+    ~/src/cpp $ sudo apt-add-repository 'deb http://downloads.mongodb.org/distros/ubuntu 10.4 10gen'
+    ~/src/cpp $ sudo apt-key adv --keyserver keyserver.ubuntu.com --recv 7F0CEB10
+    ~/src/cpp $ sudo aptitude install mongodb-stable
+    
+resources
+---------
+    [mongodb wiki, dedicated os] (http://www.mongodb.org/display/DOCS/Ubuntu+and+Debian+packages)
