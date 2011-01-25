@@ -88,17 +88,15 @@ It is not important, what is important is that code was functional :)
 
 Assist Kata in the hat
 ======================
-It find that Physical constraints do not grow good code (code with your feet, code with your nose...) 
+I find that Physical constraints do hardly produce good code (code with your feet, code with your nose...) 
 
 Eat your own dog food! I will never though of doing such a thing !!
 
 Now I find at least two great thing
 
-* code like a plane
-
-    akin to ascii arts and still have green code
+* code like a plane : make arts with green code
     
-* great fold by Jonathan something like
+* great fold by Jonathan, something like
 
         words.drop(1).inject(words.first) {|sentence, w| sentence << ", " << w}
 
@@ -236,3 +234,6 @@ PISCAR
 * (planned) R(esult)
 
 PISCAR is P of PDCA on steroids
+
+
+Thank to all of participants, for being there and having created this space where very live things happens
