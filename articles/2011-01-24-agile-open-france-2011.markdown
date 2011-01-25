@@ -6,7 +6,7 @@ Agile Open matters for at least two reasons
 * it is a place to live with people and share thoughts
 * it is a place where you can experiment
 
-Here is my notes and thoughts on what happened to me
+Here is my notes and thoughts on what I noticed
 
 Programming
 ===========
