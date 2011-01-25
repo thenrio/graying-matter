@@ -162,11 +162,11 @@ Categories are made by team, just count them
 
 Then experiment on "B"
 
-Families are user oriented, and it is not because of User Story.
+Families are made to help solve the customer problem (as opposed to being a technical solution)
 
-It is because user is a Customer.
+Laurent M. gave an enlightening feedback : CDD is an implementation of PDD in the above context
 
-It is because solution oriented family are dealing with symptoms, not with the cause of Complaint
+Segregation was not a theme in PDD, I believe, and it is not important : Goals are the same, that is what matters
 
 Experiment
 ----------
