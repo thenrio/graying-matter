@@ -18,8 +18,8 @@ toto = Toto::Server.new do
   # set :root,      "index"                                   # page to load on /
   # set :markdown,  :smart                                    # use markdown + smart-mode
   # set :cache,      28800                                    # cache duration, in seconds
-  # set :disqus, true
 
+  set :disqus, 'grayingmatter'
   set :author, 'Thierry Henrio'
   set :title, 'Graying Matter'
   set :summary,   :max => 150, :delim => /~\n/
