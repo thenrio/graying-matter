@@ -68,9 +68,8 @@ What does another implementation says ?
     brew install libyaml
     pip install pyyaml
 
-read file, then ...
-
-    >>> data = load(matter)
+    >>> import yaml
+    >>> data = yaml.load(open('file-that-does-not-parse.yml'))
     Traceback (most recent call last):
       File "<stdin>", line 1, in <module>
       File "/Library/Python/2.6/site-packages/yaml/__init__.py", line 58, in load
