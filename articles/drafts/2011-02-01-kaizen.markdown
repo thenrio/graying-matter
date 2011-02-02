@@ -1,0 +1,56 @@
+
+start http server
+-----------------
+    root@kaizen:/opt/nginx# apache2ctl stop
+    root@kaizen:/opt/nginx# ./sbin/nginx
+
+open http://conf.agile-france.org/ (il y a un lag ruby au lancement, comme sur heroku, ca peut se préchauffer en configuration passenger)
+
+stop http server
+----------------
+      root@kaizen:/opt/nginx# ./sbin/nginx -s stop
+
+
+Push git
+--------
+
+repo --bare
+    git remote add kaizen ssh://kaizen.agilefrance.net/srv/git/conference-on-rails.git
+    git push kaizen master
+    
+clone (slug-like)
+
+    thenrio@kaizen:/srv/ruby$ git clone ../git/conference-on-rails.git
+    thenrio@kaizen:/srv/ruby/conference-on-rails$ git remote show origin
+    * remote origin
+      Fetch URL: /srv/ruby/../git/conference-on-rails.git/
+      Push  URL: /srv/ruby/../git/conference-on-rails.git/
+      HEAD branch: master
+      Remote branch:
+        master tracked
+      Local branch configured for 'git pull':
+        master merges with remote master
+      Local ref configured for 'git push':
+        master pushes to master (up to date)
+        
+Get environment
+---------------
+
+    ~/src/ruby/conference-on-rails/config/environments (master)$ scp -r heroku kaizen.agilefrance.net:/srv/ruby/conference-on-rails/config/environments
+    
+Install gems
+------------
+      
+      bundle install --without development test
+
+Add hook to bare repository
+---------------------------
+
+So that working copy is updated whenever bare is pushed
+
+    #!/bin/sh
+    export production=/srv/ruby/conference-on-rails
+    echo "push detected, updating ${production}"
+    (unset GIT_DIR && cd ${production} && git pull)  
+
+see [there](http://stackoverflow.com/questions/4043609/getting-fatal-not-a-git-repository-when-using-post-update-hook-to-execute) for instance, there are many ways to skin a cat
