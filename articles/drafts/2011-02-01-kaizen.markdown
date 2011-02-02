@@ -1,4 +1,7 @@
 
+Commands
+========
+
 start http server
 -----------------
     root@kaizen:/opt/nginx# apache2ctl stop
@@ -11,28 +14,22 @@ stop http server
       root@kaizen:/opt/nginx# ./sbin/nginx -s stop
 
 
-Push git
---------
+deploy using git push
+---------------------
 
-repo --bare
     git remote add kaizen ssh://kaizen.agilefrance.net/srv/git/conference-on-rails.git
     git push kaizen master
-    
-clone (slug-like)
 
-    thenrio@kaizen:/srv/ruby$ git clone ../git/conference-on-rails.git
-    thenrio@kaizen:/srv/ruby/conference-on-rails$ git remote show origin
-    * remote origin
-      Fetch URL: /srv/ruby/../git/conference-on-rails.git/
-      Push  URL: /srv/ruby/../git/conference-on-rails.git/
-      HEAD branch: master
-      Remote branch:
-        master tracked
-      Local branch configured for 'git pull':
-        master merges with remote master
-      Local ref configured for 'git push':
-        master pushes to master (up to date)
+restart server
+--------------
+
+    ssh kaizen touch /srv/ruby/conference-on-rails/tmp/restart.txt
         
+log
+===
+    
+
+
 Get environment
 ---------------
 
@@ -51,6 +48,13 @@ So that working copy is updated whenever bare is pushed
     #!/bin/sh
     export production=/srv/ruby/conference-on-rails
     echo "push detected, updating ${production}"
-    (unset GIT_DIR && cd ${production} && git pull)  
+    (unset GIT_DIR && cd ${production} && git pull)
+    
+make it executable
+    chmod ug+x hooks/post-receive
+    
 
 see [there](http://stackoverflow.com/questions/4043609/getting-fatal-not-a-git-repository-when-using-post-update-hook-to-execute) for instance, there are many ways to skin a cat
+
+
+
