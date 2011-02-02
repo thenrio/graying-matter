@@ -11,7 +11,7 @@ open http://conf.agile-france.org/ (il y a un lag ruby au lancement, comme sur h
 
 stop http server
 ----------------
-      root@kaizen:/opt/nginx# ./sbin/nginx -s stop
+    root@kaizen:/opt/nginx# ./sbin/nginx -s stop
 
 
 deploy using git push
@@ -27,8 +27,10 @@ restart server
         
 log
 ===
-    
 
+    /srv/ruby/conference-on-rails/production.log
+
+it is not rolling...
 
 Get environment
 ---------------
