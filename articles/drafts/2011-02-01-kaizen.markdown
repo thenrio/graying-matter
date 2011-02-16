@@ -16,9 +16,21 @@ stop http server
 
 deploy using git push
 ---------------------
-
-    git remote add kaizen ssh://kaizen.agilefrance.net/srv/git/conference-on-rails.git
+  
+    git remote rm kaizen
+    git remote add kaizen git@kaizen.agilefrance.net:/srv/git/conference-on-rails.git
     git push kaizen master
+
+### ssh ###
+
+* have self.id_rsa.pub in ~git/.ssh/authorized_keys
+    
+      thenrio@kaizen:sudo cat ~/.ssh/id_rsa.pub >> ~git/.ssh/authorized_keys
+
+### group ###
+* be in git group
+
+      thenrio@kaizen:/srv/ruby/conference-on-rails$ sudo usermod -aG git thenrio
 
 restart server
 --------------
@@ -30,7 +42,7 @@ log
 
     /srv/ruby/conference-on-rails/production.log
 
-it is not rolling...
+it is rolling thanks to logrotate
 
 Get environment
 ---------------
@@ -58,5 +70,39 @@ make it executable
 
 see [there](http://stackoverflow.com/questions/4043609/getting-fatal-not-a-git-repository-when-using-post-update-hook-to-execute) for instance, there are many ways to skin a cat
 
+remove apache from run levels
+----------------------------
 
+add nginx to run levels
+-----------------------
+cf [this article](http://articles.slicehost.com/2007/10/17/ubuntu-lts-adding-an-nginx-init-script)
 
+WIP
+===
+
+    thenrio@kaizen:/etc/init$ cat /etc/init/nginx.conf 
+    description "nginx"
+
+    start on (net-device-up and local-filesystems) 
+    stop on runlevel [016]
+
+    expect fork 
+    exec /opt/nginx/sbin/nginx -c /opt/nginx/conf/nginx.conf
+    respawn
+
+One problem is passenger fails, unless it is **root** that start nginx ...
+???!
+
+Hence, init script is a FAIL
+
+did not find what is bad, (what permission ??)
+
+setup a git user
+================
+
+as described in [progit](http://progit.org/book/ch4-4.html)
+
+Mere git remote show kaizen asked me for password ...
+so bad, had bad permissions on .ssh dir and files :(
+
+      git@kaizen:~$ chmod go-rwx -R .ssh
