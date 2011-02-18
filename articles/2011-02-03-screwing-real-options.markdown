@@ -1,15 +1,13 @@
-title: The hidden power of Real Options
-slug: power-of-real-options
+title: Do not screw your Real Options
+slug: screwing-real-options
 
-Real options is a topic I'm profoundly attached to
+What are Real options ??
 
-I had worked on [warrant](http://en.wikipedia.org/wiki/Warrant_(finance)) pricing, which is a kind of option, so when I attended to Pascal [game](http://www.agilecoach.net/coach-tools/real-options-space-game/) at XPDays France 2008, I was intrigued
-
-What are Real options ?
-=======================
 One pertaining article might be [this one](http://decision-coach.com/lean-and-real-options/) from Chris Matts
 
 Read it, and more if you like
+
+Pascal has a [game](http://www.agilecoach.net/coach-tools/real-options-space-game/) on this topic
 
 How can you screw your Real Options ?
 =====================================
@@ -30,9 +28,9 @@ Laurent managed to have train 19, seat 84 ... Good!
 
 Then we exchanged on our return travel. Laurent had train 16, seat 53. I had 16/72...
 
-And I was not able to change back option without discarding forth option on online system !
+And I was not able to change back option without discarding forth option using online system !
 
-And my option was cancelled due as I had fiddled with the validity date
+And on 16/12 : 10 am, I realized my option was dead ... It might be a side-effect of going to bed late : I had read 'le 16/12 minuit vingt sept'
 
 Lessons learned :
     
@@ -56,7 +54,8 @@ On 12/01/2011, I took time to communicate with erlang-paris group, informing the
 
 On 02/02/2011, I learned that my registration was dismissed, as I had registered too late : selected teams were the ones that had registered first ...
 
-
 Lesson learned :
   
-    Be sure of how your option will pay, it can look shabby now, still it can have no value just a few hours later
+    Be sure of how your option will pay, it can look __shabby__ now, still it can have __no value__ just a few hours later
+
+_Real Options is a tool, any tool can be misused_

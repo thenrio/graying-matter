@@ -1,0 +1,58 @@
+title: Gem opens in many ways
+slug: gem-opens
+
+RubyGems is opened. It can be extended and command added
+
+An example of such an extension is [open_gem](https://github.com/adamsanderson/open_gem), that provide an handy `open` command, that will open a gem in your favorite editor
+
+This extension feature has a breach though
+
+Example : guard is failing ?
+============================
+[guard](https://github.com/guard/guard) is a [watchr](https://github.com/mynyml/watchr) clone
+
+    Modern continuous testing (flexible alternative to Autotest
+
+One feature of [guard](https://github.com/guard/guard) is providing configuration templates
+
+    ~/src/ruby/dojo $ guard init rspec
+    Writing new Guardfile to /Users/thenrio/src/ruby/dojo/Guardfile
+    ERROR:  While executing gem ... (OptionParser::InvalidOption)
+        invalid option: --latest
+    /Users/thenrio/.rvm/gems/ruby-1.9.2-p136/gems/guard-0.3.0/lib/guard/guard.rb:15:in `read': No such file or directory - /lib/guard/rspec/templates/Guardfile (Errno::ENOENT)
+    	from /Users/thenrio/.rvm/gems/ruby-1.9.2-p136/gems/guard-0.3.0/lib/guard/guard.rb:15:in `init'
+    	from /Users/thenrio/.rvm/gems/ruby-1.9.2-p136/gems/guard-0.3.0/lib/guard/cli.rb:35:in `init'
+    	from /Users/thenrio/.rvm/gems/ruby-1.9.2-p136/gems/thor-0.14.6/lib/thor/task.rb:22:in `run'
+    	from /Users/thenrio/.rvm/gems/ruby-1.9.2-p136/gems/thor-0.14.6/lib/thor/invocation.rb:118:in `invoke_task'
+    	from /Users/thenrio/.rvm/gems/ruby-1.9.2-p136/gems/thor-0.14.6/lib/thor.rb:263:in `dispatch'
+    	from /Users/thenrio/.rvm/gems/ruby-1.9.2-p136/gems/thor-0.14.6/lib/thor/base.rb:389:in `start'
+    	from /Users/thenrio/.rvm/gems/ruby-1.9.2-p136/gems/guard-0.3.0/bin/guard:6:in `<top (required)>'
+    	from /Users/thenrio/.rvm/gems/ruby-1.9.2-p136/bin/guard:19:in `load'
+    	from /Users/thenrio/.rvm/gems/ruby-1.9.2-p136/bin/guard:19:in `<main>'
+    
+Huh?
+
+Searching into my system tells me :
+
+* open is a valid gem command
+* its message is not the one `open_gem` should provide
+
+I had two different gems providing `open` command !!!
+
+* [gem-open](https://github.com/fnando/gem-open)
+* [open_gem](https://github.com/adamsanderson/open_gem)
+
+And the one being used was not the one `guard` was expecting
+
+Fix is easy once problem is clear
+
+    ~/src/ruby/dojo $ gem uninstall gem-open
+    Successfully uninstalled gem-open-0.1.3
+    ~/src/ruby/dojo $ guard init rspec
+    rspec guard added to Guardfile, feel free to edit it
+
+PDCA
+====
+Is it a good problem ? I don't know yet :)
+
+I will look for information on this 'gem feature breach' behavior...
