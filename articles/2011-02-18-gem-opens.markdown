@@ -1,7 +1,7 @@
 title: Gem opens in many ways
 slug: gem-opens
 
-RubyGems is opened. It can be extended and command added
+RubyGems is opened. It can be extended and command added, with rubygems_plugin.rb files being dropped on load path (see [infoq](http://www.infoq.com/news/2009/04/rubygems-plugins) and [wikibooks](http://en.wikibooks.org/wiki/Ruby_Programming/RubyGems#Plugins))
 
 An example of such an extension is [open_gem](https://github.com/adamsanderson/open_gem), that provide an handy `open` command, that will open a gem in your favorite editor
 
@@ -33,30 +33,32 @@ Huh?
 Searching into my system tells me :
 
 * open is a valid gem command : __good__
-* its message is not the one `open_gem` should provide : __bad__
+* its message is not the one in source code of `open_gem` : __smell__
 
-I had two different gems providing `open` command !!!
+So I looked at my system with `find` (hammer)...
+    
+    ~/src/ruby/dojo $ find $GEM_HOME -name '*.rb' | xargs grep -Hn 'Open a gem into your favorite editor'
+    /Users/thenrio/.rvm/gems/ruby-1.9.2-p136/gems/gem-open-0.1.3/lib/rubygems/commands/open.rb:3:    "Open a gem into your favorite editor"
 
-* [gem-open](https://github.com/fnando/gem-open)
-* [open_gem](https://github.com/adamsanderson/open_gem)
+I had two different gems providing `open` command : [gem-open](https://github.com/fnando/gem-open) and [open_gem](https://github.com/adamsanderson/open_gem) !!
 
-Then, what happens is that [gem-open](https://github.com/fnando/gem-open) prevails, so guard command fails
+So `guard init` is failing because it uses unsupported options for command `gem open`, because command is not provided by plugin `open_gem`, because it is registered by plugin `gem-open`
 
-Fix is easy once cause is clear
+Reverse is fine, lets check
 
     ~/src/ruby/dojo $ gem uninstall gem-open
     Successfully uninstalled gem-open-0.1.3
     ~/src/ruby/dojo $ guard init rspec
     rspec guard added to Guardfile, feel free to edit it
 
-PDCA
-====
+Plan to the rescue
+==================
 Above cause is just two level above problem 'guard init rspec is failing on my system'
 
-Its root cause ?
+Is it root enough ?
 
 * You can install 2 gems providing the same rubygems command, creeping your system ?
 
-Is it a good problem ? I don't know yet
+Is it a good problem ? I don't know yet ... I filled a [feature on rubygems tracker](https://rubyforge.org/tracker/index.php?func=detail&aid=28937&group_id=126&atid=578)
 
-I will look for information on this 'gem feature breach' behavior...
+Time will tell time...
