@@ -1,0 +1,69 @@
+title: Tech Log, february
+
+Testing
+=======
+
+javascript
+----------
+
+jasmine load scripts before fixture
+
+when fixture is mere data, then document.ready will not work
+
+this promote either
+
+* use of .live to have handler installed while loading DOM from fixture
+* fixture actually references to script
+
+sinatra | rack-test
+-------------------
+
+### Using test environment for Sinatra::Base
+have env set before requiring 'rack/test'
+
+    ENV['RACK_ENV'] = 'test'
+    require 'rack/test'
+
+### Testing session for Sinatra::Base
+
+Sinatra::Base has `session` method defined, which looks like a `Hash`
+
+`session` method is not define in `Rack::Test::Methods`, and can be found in common rack env
+
+    include Rack::Test::Methods
+    def session
+      last_request.env['rack.session']
+    end
+
+Then assert on session as a hash
+
+    assert {session[:foo] == 1}
+
+Rails
+=====
+
+haml
+----
+
+Discovered [object reference](http://haml-lang.com/docs/yardoc/file.HAML_REFERENCE.html#object_reference_)
+
+Nice helper, and I have erb for js ... So wrote plain helper, same insights
+
+CSS
+===
+
+Found that div positioning with 960 can require explicit .clear
+
+      #title.grid_6
+        %h1 This is a title
+      #text.grid_6 
+        PITA in the ass, though this is mere math, positioning and fraction of space
+      .clear
+      #left.grid_1
+        This text begins on the left
+        
+`#left` require explicit `.clear`, or it is on same X position than `#text`, due to float nature of 960 grid system
+
+
+
+

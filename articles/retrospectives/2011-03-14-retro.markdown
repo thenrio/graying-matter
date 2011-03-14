@@ -1,0 +1,56 @@
+title: Retrospective #1
+slug: retro
+
+problems
+
+Gaspard
+-------
+### SAD : Impression d'éloignement
+
+### FACTS
+* conflit, réprimandes à table
+* il ne fait toujours pas d'effort pour travailler seul
+
+### OPTIONS
+* faire menu avant de manger, et redire les 3 regles du repas
+    1. serviette
+    2. manger au dessus de l'assiette
+    3. fermer la bouche
+
+* travailler le jeudi soir avec lui
+
+* mesurer sur mercury comment c'est mieux :)
+
+Travail
+-------
+### MAD : la loose
+
+### FACTS
+* alphalink : OUT
+* alcaltel : OUT?, dérouté par l'absence de feedback
+* ibp : format de cv agile pas adapté
+
+### OPTIONS
+* répéter ma présentation : 5 fois, avec chronomètre
+    objectif : présenter soi, générale et en quoi mes expériences sont bien ou motivent ma perception de mon travail en 15 minutes
+    
+* utiliser LeanKit et Board pour tracker les progrès, avec les dates
+
+Conf
+----
+### SAD
+
+### FACTS
+* late
+* ne sais pas ce qui se passe, que font les autres ?
+
+### OPTIONS
+* prioriser avec LeanKit et Board
+* conf call next réunion : mercredi 16 :(, ca ne va pas bien avec la boxe :(
+
+Sommeil
+-------
+### GLAD
+
+### FACTS
+* mercury est sympa pour mesurer
