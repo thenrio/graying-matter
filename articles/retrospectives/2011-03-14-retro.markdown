@@ -5,7 +5,7 @@ problems
 
 Gaspard
 -------
-### SAD : Impression d'éloignement
+### SAD (conflit, eloignement)
 
 ### FACTS
 * conflit, réprimandes à table
@@ -33,7 +33,6 @@ Travail
 ### OPTIONS
 * répéter ma présentation : 5 fois, avec chronomètre
     objectif : présenter soi, générale et en quoi mes expériences sont bien ou motivent ma perception de mon travail en 15 minutes
-    
 * utiliser LeanKit et Board pour tracker les progrès, avec les dates
 
 Conf
@@ -54,3 +53,5 @@ Sommeil
 
 ### FACTS
 * mercury est sympa pour mesurer
+
+### OPTIONS = KEEP DOING 
