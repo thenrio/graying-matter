@@ -36,6 +36,14 @@ restart server
 --------------
 
     ssh kaizen touch /srv/ruby/conference-on-rails/tmp/restart.txt
+    
+mongo
+=====
+dump/restore
+------------
+    mongodump --db conference-on-rails-production --host kaizen
+    mongorestore --drop dump/conference-on-rails-production
+
         
 log
 ===
@@ -62,8 +70,11 @@ So that working copy is updated whenever bare is pushed
     #!/bin/sh
     export production=/srv/ruby/conference-on-rails
     echo "push detected, updating ${production}"
-    (unset GIT_DIR && cd ${production} && git pull)
-    
+    (unset GIT_DIR && cd ${production} && git pull && bundle install)
+
+=> bundle install is failing :( on kaizen #fail
+
+
 make it executable
     chmod ug+x hooks/post-receive
     

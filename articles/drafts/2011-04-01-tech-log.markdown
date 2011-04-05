@@ -1,0 +1,33 @@
+git
+===
+
+interactive rebase
+------------------
+used all last month, pure joy
+
+    git rebase -i HEAD~10 to rewrite|reorder last 10 commits
+
+resources:
+
+* [progit](http://progit.org/book/ch6-4.html)
+   
+show
+----
+Useful to get content of a file for a particular version
+
+ex : show HEAD version for file app/views/users/_form.html.erb
+
+        git show HEAD:app/views/users/_form.html.erb
+        
+resources:
+
+* [get a file from a specific revision](http://gitready.com/intermediate/2009/02/27/get-a-file-from-a-specific-revision.html )
+
+
+for both command, [revisionspec](http://www.kernel.org/pub/software/scm/git/docs/gitrevisions.html) is most useful
+
+
+
+
+
+

@@ -1,0 +1,47 @@
+
+Rails
+=====
+
+i18n
+====
+
+Learned active model convention
+
+Rather poorly documented in source code ... (ActiveModel::Naming, ActiveModel::Translation)
+
+    fr:
+      activerecord:
+        models:
+          user: Utilisateur
+        attributes:
+          user:
+            birthdate: Date de Naissance
+            email: Email
+            first_name: Prénom
+            last_name: Nom
+
+Advantages are
+
+* shorter label in view
+
+        f.label :first_name
+        
+* used in validation error message
+
+testing
+=======
+ruby struct can be a handy mock :)
+----------------------------------
+
+
+js format in controller
+-----------------------
+ugly
+
+    get :search, :id => @registration.id, :q => 'um', :format => :js
+
+failed to have rack content type properly set ... `request.env('CONTENT_TYPE')` or `request.content_type` ...
+
+
+
+
