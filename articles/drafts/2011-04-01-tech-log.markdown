@@ -1,11 +1,42 @@
 git
 ===
 
+log ascii arts
+--------------
+    
+    git log --graph --oneline --all
+
+
 interactive rebase
 ------------------
-used all last month, pure joy
+used many times last month, pure joy
 
-    git rebase -i HEAD~10 to rewrite|reorder last 10 commits
+#### rewrite last 10 commits
+
+    git rebase -i HEAD~10 
+
+#### rewrite commit till child of $commit
+
+suppose 
+
+    * 1234567 Endpoint
+    .
+    .
+    .
+    * 50a9b80 move view spec to correct location
+    * 653c818 have tag matcher
+    * 4a53906 add destroy dependence (user -> devices -> radius_user)
+
+Then 
+
+    git rebase -i 4a53906
+    
+Will rebase commits 653c818..1234567
+    
+#### abort
+    
+    git rebase -i git rebase -i
+    
 
 resources:
 
