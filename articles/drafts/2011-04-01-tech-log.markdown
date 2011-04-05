@@ -26,6 +26,21 @@ resources:
 
 for both command, [revisionspec](http://www.kernel.org/pub/software/scm/git/docs/gitrevisions.html) is most useful
 
+test
+====
+
+rspec
+=====
+be predicate
+------------
+oh, there is meta programming in be ... [predicate-matchers](http://relishapp.com/rspec/rspec-expectations/v/2-5/dir/built-in-matchers/predicate-matchers)
+  
+hence, for an array `be_any` sends `any?`
+
+resource:
+
+* [stackoverflow](http://stackoverflow.com/questions/4146016/how-do-i-test-an-array-by-regex-in-rspec)
+
 
 
 
