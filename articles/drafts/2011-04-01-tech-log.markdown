@@ -3,7 +3,7 @@ git
 
 log ascii arts
 --------------
-    
+
     git log --graph --oneline --all
 
 
@@ -13,11 +13,11 @@ used many times last month, pure joy
 
 #### rewrite last 10 commits
 
-    git rebase -i HEAD~10 
+    git rebase -i HEAD~10
 
 #### rewrite commit till child of $commit
 
-suppose 
+suppose
 
     * 1234567 Endpoint
     .
@@ -27,21 +27,22 @@ suppose
     * 653c818 have tag matcher
     * 4a53906 add destroy dependence (user -> devices -> radius_user)
 
-Then 
+Then
 
     git rebase -i 4a53906
-    
+
 Will rebase commits 653c818..1234567
-    
-#### abort
-    
-    git rebase -i git rebase -i
-    
+
+### rewrite till inflection ?
+On branch bar, having parent on master
+
+    git rebase -i master
+
 
 resources:
 
 * [progit](http://progit.org/book/ch6-4.html)
-   
+
 show
 ----
 Useful to get content of a file for a particular version
@@ -49,7 +50,7 @@ Useful to get content of a file for a particular version
 ex : show HEAD version for file app/views/users/_form.html.erb
 
         git show HEAD:app/views/users/_form.html.erb
-        
+
 resources:
 
 * [get a file from a specific revision](http://gitready.com/intermediate/2009/02/27/get-a-file-from-a-specific-revision.html )
@@ -65,7 +66,7 @@ rspec
 be predicate
 ------------
 oh, there is meta programming in be ... [predicate-matchers](http://relishapp.com/rspec/rspec-expectations/v/2-5/dir/built-in-matchers/predicate-matchers)
-  
+
 hence, for an array `be_any` sends `any?`
 
 resource:

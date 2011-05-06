@@ -1,0 +1,19 @@
+
+ruby strings
+============
+
+quote does not escape
+---------------------
+    ruby-1.9.2-p136 :026 > '\n'.bytes.to_a
+     => [92, 110]
+    ruby-1.9.2-p136 :031 > "\n".bytes.to_a
+     => [10]
+
+Then, \n might be as read
+
+`gsub('\n', "\n")` will replace two bytes sequence with system eol ($/)
+
+format
+------
+
+    (1..9).each {|i| FileUtils.mv("maze_#{i}", "maze_%02d" % i) }

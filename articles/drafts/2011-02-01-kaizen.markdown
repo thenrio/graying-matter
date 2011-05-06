@@ -16,7 +16,7 @@ stop http server
 
 deploy using git push
 ---------------------
-  
+
     git remote rm kaizen
     git remote add kaizen git@kaizen.agilefrance.net:/srv/git/conference-on-rails.git
     git push kaizen master
@@ -24,7 +24,7 @@ deploy using git push
 ### ssh ###
 
 * have self.id_rsa.pub in ~git/.ssh/authorized_keys
-    
+
       thenrio@kaizen:sudo cat ~/.ssh/id_rsa.pub >> ~git/.ssh/authorized_keys
 
 ### group ###
@@ -36,7 +36,7 @@ restart server
 --------------
 
     ssh kaizen touch /srv/ruby/conference-on-rails/tmp/restart.txt
-    
+
 mongo
 =====
 dump/restore
@@ -44,10 +44,18 @@ dump/restore
     mongodump --db conference-on-rails-production --host kaizen
     mongorestore --drop dump/conference-on-rails-production
 
-        
+start/stop
+----------
+    /etc/init.d/mongodb start|stop|restart
+
+    mongod --config /etc/mongodb.conf
+
+log
+---
+    /var/log/mongodb
+
 log
 ===
-
     /srv/ruby/conference-on-rails/production.log
 
 it is rolling thanks to logrotate
@@ -56,10 +64,10 @@ Get environment
 ---------------
 
     ~/src/ruby/conference-on-rails/config/environments (master)$ scp -r heroku kaizen.agilefrance.net:/srv/ruby/conference-on-rails/config/environments
-    
+
 Install gems
 ------------
-      
+
       bundle install --without development test
 
 Add hook to bare repository
@@ -77,7 +85,7 @@ So that working copy is updated whenever bare is pushed
 
 make it executable
     chmod ug+x hooks/post-receive
-    
+
 
 see [there](http://stackoverflow.com/questions/4043609/getting-fatal-not-a-git-repository-when-using-post-update-hook-to-execute) for instance, there are many ways to skin a cat
 
@@ -91,13 +99,13 @@ cf [this article](http://articles.slicehost.com/2007/10/17/ubuntu-lts-adding-an-
 WIP
 ===
 
-    thenrio@kaizen:/etc/init$ cat /etc/init/nginx.conf 
+    thenrio@kaizen:/etc/init$ cat /etc/init/nginx.conf
     description "nginx"
 
-    start on (net-device-up and local-filesystems) 
+    start on (net-device-up and local-filesystems)
     stop on runlevel [016]
 
-    expect fork 
+    expect fork
     exec /opt/nginx/sbin/nginx -c /opt/nginx/conf/nginx.conf
     respawn
 
