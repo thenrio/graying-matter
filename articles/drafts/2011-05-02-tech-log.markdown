@@ -1,9 +1,8 @@
-
 ruby strings
 ============
+quote does not escape a lot :)
+------------------------------
 
-quote does not escape
----------------------
     ruby-1.9.2-p136 :026 > '\n'.bytes.to_a
      => [92, 110]
     ruby-1.9.2-p136 :031 > "\n".bytes.to_a
@@ -17,3 +16,65 @@ format
 ------
 
     (1..9).each {|i| FileUtils.mv("maze_#{i}", "maze_%02d" % i) }
+
+Rails
+=====
+CONTROLLER DO NOT SHARE FORMS !!
+--------------------------------
+I tried it, and it is a mess
+
+* controller have few chances of doing the same things
+
+In my context:
+
+* user controller triggers email
+* user controller do not
+
+Then controller will be full of if/else statements ... so what about a different action ? then url and form and ... oh shit
+
+insightful post : [restful and admin](http://www.rubyfleebie.com/restful-admin-controllers-and-views-with-rails/)
+
+Virtual attributes
+------------------
+see [asciicasts](http://asciicasts.com/episodes/16-virtual-attributes)
+
+__USE `database_attribute=`, so that attribute is dirtied by virtual one__, otherwise no UPDATE is performed on update_attributes
+
+
+Nested attributes
+-----------------
+__USE attr_accessible on each of them__
+
+
+Bundler pain
+============
+bundler does not resolve well ?
+
+Nasty .bundler ? Then
+
+    bundler config
+
+Factory Girl
+============
+
+association dsl fail to convey build intention
+----------------------------------------------
+
+    Factory.define(:account) do |f|
+      f.association :owner
+    end
+
+    account = Factory.build(:account)
+    => Factory.create(:owner)
+
+build with association as options is a pain
+-------------------------------------------
+
+    place = Factory.build(:place, company_id: apple.id, provider: orange)
+    place.company_id.should == 1
+    place.company.should be_nil
+    place.provider.should be orange
+    place.provider_id.should be_nil
+
+
+

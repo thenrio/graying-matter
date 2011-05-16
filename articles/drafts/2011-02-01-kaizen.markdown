@@ -42,13 +42,23 @@ mongo
 dump/restore
 ------------
     mongodump --db conference-on-rails-production --host kaizen
-    mongorestore --drop dump/conference-on-rails-production
+    mongorestore --drop -d conference-on-rails-production dump/conference-on-rails-production
 
 start/stop
 ----------
-    /etc/init.d/mongodb start|stop|restart
+
+use init script
+
+    sudo start|stop|restart
+
+=>
 
     mongod --config /etc/mongodb.conf
+
+repair
+------
+    rm /var/lib/mongodb/mongod.lock
+    mongod --config /etc/mongodb.conf --repair
 
 log
 ---
